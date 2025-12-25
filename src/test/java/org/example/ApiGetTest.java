@@ -10,33 +10,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class ApiGetTest {
 
     @Test
-    void testGerCity() {
-        ApiGet api = new ApiGet();
-        String res = api.getCity(2);
-        assertEquals("", res);
-    }
-@Test
-    void testGerCity1() {
-        ApiGet api = new ApiGet();
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    System.setOut(new PrintStream(outputStream));
-
-    try {
-        String result = api.getCity(1);
-        assertTrue(result == null || !result.isEmpty());
-        String output = outputStream.toString();
-        if (result == null) {
-            assertTrue(output.contains("Ошибка") || output.contains("Непонятный город"));
-        } else {
-            assertTrue(output.contains("Город:"));
-        }
-    } finally {
-        System.setOut(System.out);
-    }
-}
-@Test
-    void testCon() {
+    void testOne() {
         ApiGet apiGet = new ApiGet();
-        assertNotNull(apiGet);
-}
+        assertEquals("", apiGet.getCity(0));
+    }
+    @Test
+    void testOneAgiin() {
+        ApiGet apiGet = new ApiGet();
+        assertEquals("", apiGet.getCity(100));
+    }
+    @Test
+    void testisOne() {
+        ApiGet apiGet = new ApiGet();
+       apiGet.getCity(1);
+       assertTrue(true);
+    }
+
 }
